@@ -7,7 +7,7 @@ body {
   /* justify-content: space-evenly; */
   align-items: center;
 
-  background-image: url(/img/back-img.jpg);
+  background-image: url(img/back-img.jpg);
   background-size: 50%;
   /* Изменение размера картинки по размеру контейнера*/
   background-position: center;
