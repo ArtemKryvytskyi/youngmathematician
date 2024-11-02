@@ -1,6 +1,6 @@
 //тут взаимодействие с страницей
 import { creatingTasksForUser } from "./creatingTasksForUser.js";
-import { arrOfExamplesAll } from "./array of examples up to 10.js";
+import { arrOfExamplesAll } from "array of examples up to 10.js";
 import { arrayOfexamplesUser } from "creatingExampleForUser.js";
 
 const buttonAddition = document.getElementById('+');
