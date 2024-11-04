@@ -12,9 +12,18 @@ export let arrayOfexamplesUser = (mathematical_sign) => {
       arrayOfexamplesUser = creatingTasksForUser(arrOfExamplesAll.ArrOfExamplesForAddition);
       creatingExampleForUser();
       return arrayOfexamplesUser;
-
-    default:
-      break;
+    case "-":
+      arrayOfexamplesUser = creatingTasksForUser(arrOfExamplesAll.ArrOfExamplesForSubtraction);
+      creatingExampleForUser();
+      return arrayOfexamplesUser;
+    case "*":
+      arrayOfexamplesUser = creatingTasksForUser(arrOfExamplesAll.ArrOfExamplesForMultiplication);
+      creatingExampleForUser();
+      return arrayOfexamplesUser;
+    case "/":
+      arrayOfexamplesUser = creatingTasksForUser(arrOfExamplesAll.ArrOfExamplesForDivision);
+      creatingExampleForUser();
+      return arrayOfexamplesUser;
   }
 };
 

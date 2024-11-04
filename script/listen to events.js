@@ -8,7 +8,7 @@ const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
 const buttonDivision = document.getElementById('/');
 
-let getArrOfExamplesUser = arrayOfexamplesUser;
+let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного запуска.
 
 buttonAddition.addEventListener('click', () => {
   const mathematical_sign = "+";
@@ -18,59 +18,26 @@ buttonAddition.addEventListener('click', () => {
 });
 
 buttonSubtraction.addEventListener('click', () => {
-  creatingExampleSubtraction();
+  const mathematical_sign = "-";
+  getArrOfExamplesUser(mathematical_sign);
+  const divButton = document.querySelector(".button");
+  divButton.remove();
 });
 
 buttonMultiplication.addEventListener('click', () => {
-  creatingExampleMultiplication();
+  const mathematical_sign = "*";
+  getArrOfExamplesUser(mathematical_sign);
+  const divButton = document.querySelector(".button");
+  divButton.remove();
 });
 
 buttonDivision.addEventListener('click', () => {
-  creatingExampleDivision();
+  const mathematical_sign = "/";
+  getArrOfExamplesUser(mathematical_sign);
+  const divButton = document.querySelector(".button");
+  divButton.remove();
 });
 
-// function creatingExample(arrayOfexamplesUser) {
-//   // divAnswer.remove();
-//   divButton.remove();
-//   const divExample = document.createElement('div');
-//   divExample.classList.add('divExample');
-//   divExample.innerHTML = "<p>" + `${arrayOfexamplesUser[example]} = ` + "</p>";// меняется
-
-//   if (example < 9) { example++ } else { example = 0; arrayOfexamplesUser = CreatingTask() };
-
-//   scriptElement.parentNode.insertBefore(divExample, scriptElement);
-
-//   const inputAnswer = document.createElement('input');
-//   inputAnswer.addEventListener('keydown', checkForEnter);
-//   divExample.appendChild(inputAnswer);
-//   inputAnswer.focus()
-
-//   button.textContent = 'Сheck my answer'; //меняется
-//   scriptElement.parentNode.insertBefore(button, scriptElement);
-//   function checkForEnter(e) {
-//     if (e.keyCode == 13) {
-//       document.querySelector(".btn").click();
-//     }
-//   }
-//   const divCountingDownExamples = document.createElement('div');
-//   divCountingDownExamples.classList.add('CountingDownExamples');
-//   if (example >= 1) {
-//     divCountingDownExamples.innerHTML = "<span>" + `There are still ${arrayOfexamplesUser.length - example} examples to solve` + "</span>";
-//   } else {
-//     divCountingDownExamples.innerHTML = "<span>" + `There is only one example left` + "</span>";
-//   }
-//   scriptElement.parentNode.insertBefore(divCountingDownExamples, scriptElement);
-//   button.addEventListener('click', () => {
-//     let exampleFromTegP = document.querySelector("p").innerHTML;
-//     let userSresponse = document.querySelector("input").value;
-//     divExample.remove();
-//     divCountingDownExamples.remove();
-//     button.remove()
-//     checkAnswer(exampleFromTegP, userSresponse);
-
-
-//   })
-// }
 
 
 

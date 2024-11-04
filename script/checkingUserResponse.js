@@ -1,4 +1,5 @@
 import { creatingExampleForUser } from "./creatingExampleForUser.js";
+// import { evaluate } from 'mathjs';
 
 export let arrOfCorrectAnswers = [];
 export let arrOfIncorrectAnswers = [];
@@ -6,7 +7,6 @@ let example = 0;
 
 export function checkingUserResponse(exampleFromTegP, userSresponse) {
   let responseFromUser = exampleFromTegP + userSresponse;
-  console.log(responseFromUser);
 
   let mainElement = document.querySelector("main");
   const divAnswer = document.createElement('div');
@@ -16,11 +16,25 @@ export function checkingUserResponse(exampleFromTegP, userSresponse) {
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.classList.add('btn');
-
   const arrNumbers = exampleFromTegP.match(/-?\d+/g).map(Number);
+  const mathematical_sign = exampleFromTegP.match(/[+\-*:]/)[0];
+  let getmathematicalStandard = (mathematical_sign) => {
+    switch (mathematical_sign) {
+      case "+":
+        return arrNumbers[0] + arrNumbers[1];
+      case "-":
+        return arrNumbers[0] - arrNumbers[1];
+      case "*":
+        return arrNumbers[0] * arrNumbers[1];
+      case ":":
+        return arrNumbers[0] / arrNumbers[1];
+    }
+  };
+  const mathematicalStandard = getmathematicalStandard(mathematical_sign);
+  console.log(mathematicalStandard);
   if (example < 10) {
     example++;
-    if (arrNumbers[0] + arrNumbers[1] == userSresponse) {
+    if (mathematicalStandard == userSresponse) {
       divAnswer.innerHTML = "<p>" + "OK, You're right!!!" + "</p>";
       divAnswer.innerHTML += "<img src='./img/pngwing.com.png' height='200px' width='200px'>";
       arrOfCorrectAnswers.push(responseFromUser);

@@ -1,7 +1,8 @@
+/* @media (min-width: 1240px) */
 html,
 body {
   height: 97%;
-  width: 98%;
+  /* width: 98%; */
 }
 
 main {
@@ -14,7 +15,7 @@ main {
   align-items: center;
 
   background-image: url(img/background3.jpg);
-  background-size: 80%;
+  /* background-size: 80%; */
   /* Изменение размера картинки по размеру контейнера*/
   background-position: center;
   /* Центровка картинки */
@@ -240,3 +241,5 @@ input {
 .incorrect {
   background-color: rgb(250, 67, 67);
 }
+
+/* @media (max-width: 768px) */
