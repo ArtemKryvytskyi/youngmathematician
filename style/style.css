@@ -1,25 +1,10 @@
+@media (min-width: 1024px) {
+
   html,
   body {
     height: 93%;
     /* width: 98%; */
-  }
-
-  main {
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-evenly; */
-    align-items: center;
-
-    background-image: url(../img/background3.jpg);
-    background-size: 70%;
-    /* Изменение размера картинки по размеру контейнера*/
-    background-position: center;
-    /* Центровка картинки */
-    background-repeat: no-repeat;
-    /* Картинка не повторяется */
-    /* border: 1px solid red; */
+    /* @media (min-width: 1024px) */
   }
 
   header,
@@ -36,20 +21,38 @@
     background-color: #4CAF50;
     flex: 1;
     flex-direction: column;
+    padding: 5px;
   }
 
-  img {
-    size: 10%;
+  header>img {
+    width: 30px;
+    height: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   main {
+    height: 98%;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+    align-items: center;
+
     background-color: #2196F3;
-    flex: 2;
+
+    background-image: url(../img/background3.jpg);
+    background-size: 50%;
+    /* Изменение размера картинки по размеру контейнера*/
+    background-position: center;
+    /* Центровка картинки */
+    background-repeat: no-repeat;
+    /* Картинка не повторяется */
+    /* border: 1px solid red; */
   }
 
   footer {
     background-color: #f44336;
-    flex: 1;
     flex-direction: column;
   }
 
@@ -57,11 +60,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     text-align: justify;
-
-    /* border: 1px solid blueviolet; */
-
     box-sizing: border-box;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
@@ -71,13 +70,14 @@
     position: relative;
     overflow: hidden;
     filter: brightness(200%);
-    opacity: 0.5;
+    opacity: 0.7;
   }
 
   .text {
     background-color: blue;
     color: white;
     font-size: 3em;
+    /*2.4 planshet */
     font-weight: bold;
     font-family: sans-serif;
     text-transform: uppercase;
@@ -245,3 +245,4 @@
   .incorrect {
     background-color: rgb(250, 67, 67);
   }
+}

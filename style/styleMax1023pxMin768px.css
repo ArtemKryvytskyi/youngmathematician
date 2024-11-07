@@ -1,10 +1,10 @@
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) and (min-width: 768px) {
 
     html,
     body {
       height: 95%;
       /* width: 98%; */
-      /* @media (max-width: 768px) */
+      /* @media (min-width: 1024px) */
     }
 
     header,
