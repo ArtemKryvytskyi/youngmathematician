@@ -32,7 +32,7 @@ export const creatingTasksForUser = (arrOfTasks) => {
     arrOfExamples = getArrOfExemple(arrOfTasks);
   }
   while (arrOfExamples.length < 10)
-  console.log(arrOfExamples);
+  // console.log(arrOfExamples);
   return arrOfExamples
 }
 

@@ -31,23 +31,23 @@ export function checkingUserResponse(exampleFromTegP, userSresponse) {
     }
   };
   const mathematicalStandard = getmathematicalStandard(mathematical_sign);
-  console.log(mathematicalStandard);
+  // console.log(mathematicalStandard);
   if (example < 10) {
     example++;
     if (mathematicalStandard == userSresponse) {
       divAnswer.innerHTML = "<p>" + "OK, You're right!!!" + "</p>";
       divAnswer.innerHTML += "<img src='./img/pngwing.com.png' height='200px' width='200px'>";
       arrOfCorrectAnswers.push(responseFromUser);
-      console.log(arrOfCorrectAnswers);
+      // console.log(arrOfCorrectAnswers);
     } else if (example <= 9) {
       divAnswer.innerHTML = "<p>" + "Oh No, it's a mistake." + "<img src='./img/pngsad.com.png' height='100px' width='100px'>" + "</p>";
       divAnswer.innerHTML += "<p>" + "Try the following example!" + "<img src='./img/TRY.com.png' height='100px' width='150px'>" + "</p>";
       arrOfIncorrectAnswers.push(responseFromUser);
-      console.log(arrOfIncorrectAnswers);
+      // console.log(arrOfIncorrectAnswers);
     } else {
       divAnswer.innerHTML = "<p>" + "Oh No, it's a mistake." + "<img src='./img/pngsad.com.png' height='100px' width='100px'>" + "</p>";
       arrOfIncorrectAnswers.push(responseFromUser);
-      console.log(arrOfIncorrectAnswers);
+      // console.log(arrOfIncorrectAnswers);
     }
   }
   if (example < 10) {

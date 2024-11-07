@@ -32,7 +32,7 @@ export function creatingExampleForUser() {
   if (example < 10) {
     const divExample = document.createElement('div');
     divExample.classList.add('divExample');
-    divExample.innerHTML = "<p>" + `${arrayOfexamplesUser[example]} = ` + "</p>";// меняется
+    divExample.innerHTML = "<p id='respons'>" + `${arrayOfexamplesUser[example]} = ` + "</p>";// меняется
     mainElement.appendChild(divExample);
 
     const inputAnswer = document.createElement('input');
@@ -54,7 +54,7 @@ export function creatingExampleForUser() {
     const divCountingDownExamples = document.createElement('div');
     divCountingDownExamples.classList.add('CountingDownExamples');
 
-    console.log(example);
+    // console.log(example);
     example++;
 
     if (example < 10) {
@@ -65,7 +65,7 @@ export function creatingExampleForUser() {
     mainElement.appendChild(divCountingDownExamples);
 
     button.addEventListener('click', () => {
-      let exampleFromTegP = document.querySelector("p").innerHTML;
+      let exampleFromTegP = document.getElementById("respons").innerHTML;
       let userSresponse = document.querySelector("input").value;
       divExample.remove();
       divCountingDownExamples.remove();
@@ -76,7 +76,7 @@ export function creatingExampleForUser() {
   } else {
     let divResultTest = document.querySelector(".result");
     divResultTest.remove();
-    console.log(divResultTest);
+    // console.log(divResultTest);
     mainElement.appendChild(returnPage);
     example = 0;
   }
