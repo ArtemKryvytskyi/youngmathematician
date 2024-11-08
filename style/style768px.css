@@ -3,8 +3,20 @@
     html,
     body {
       height: 95%;
+
+      display: flex;
+      flex-direction: column;
       /* width: 98%; */
-      /* @media (max-width: 768px) */
+      /* @media (min-width: 1024px) */
+    }
+
+    html {
+      display: flex;
+      flex-direction: column;
+      flex-basis: content;
+      justify-content: center;
+
+      height: 100%;
     }
 
     header,
@@ -21,14 +33,17 @@
       background-color: #4CAF50;
       flex: 1;
       flex-direction: column;
+      flex-wrap: wrap;
       padding: 5px;
     }
 
-    header>img {
-      width: 30px;
+    .westpac {
       height: 15px;
+      width: 30px;
       margin-left: 5px;
       margin-right: 5px;
+
+      align-self: center;
     }
 
     main {
@@ -76,7 +91,7 @@
     .text {
       background-color: blue;
       color: white;
-      font-size: 2.4em;
+      font-size: 1.25em;
       /*2.4 planshet */
       font-weight: bold;
       font-family: sans-serif;
@@ -153,7 +168,7 @@
       margin-top: 20px;
       padding: 10px;
 
-      font-size: 100px;
+      font-size: 2.5em;
       background-color: rgba(0, 1, 0, 0.5);
       text-shadow:
         -1px -1px #FFF,
@@ -177,7 +192,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 50px;
     }
 
     .divExample {
