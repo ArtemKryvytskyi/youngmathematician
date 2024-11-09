@@ -36,6 +36,9 @@ export function creatingExampleForUser() {
     mainElement.appendChild(divExample);
 
     const inputAnswer = document.createElement('input');
+    inputAnswer.setAttribute("type", "text");
+    inputAnswer.setAttribute("pattern", "\\d*");
+    inputAnswer.setAttribute("inputmode", "numeric");
     inputAnswer.addEventListener('keydown', checkForEnter);
     divExample.appendChild(inputAnswer);
     inputAnswer.focus()
