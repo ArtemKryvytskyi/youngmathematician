@@ -1,8 +1,8 @@
 import { creatingExampleForUser } from "./creatingExampleForUser.js";
 // import { evaluate } from 'mathjs';
 
-export let arrOfCorrectAnswers = [];
-export let arrOfIncorrectAnswers = [];
+let arrOfCorrectAnswers = [];
+let arrOfIncorrectAnswers = [];
 let example = 0;
 
 export function checkingUserResponse(exampleFromTegP, userSresponse) {
@@ -63,6 +63,8 @@ export function checkingUserResponse(exampleFromTegP, userSresponse) {
     button.remove();
     if (example == 10) {
       createResult();
+      arrOfCorrectAnswers = [];
+      arrOfIncorrectAnswers = [];
       example = 0;
     } else {
       creatingExampleForUser();
