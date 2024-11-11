@@ -198,6 +198,7 @@
     .divExample {
       display: flex;
       align-items: center;
+      font-size: 4em;
     }
 
     .divAnswer {
@@ -218,8 +219,8 @@
     }
 
     input {
-      height: 1em;
-      width: 1em;
+      height: 1.5em;
+      width: 1.5em;
       margin-left: 10px;
 
       font-size: 1em;
