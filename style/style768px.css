@@ -218,11 +218,11 @@
     }
 
     input {
-      height: 100px;
-      width: 120px;
+      height: 1em;
+      width: 1em;
       margin-left: 10px;
 
-      font-size: 100px;
+      font-size: 1em;
       font-weight: bold;
       text-align: center;
 
