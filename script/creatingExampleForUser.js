@@ -28,6 +28,7 @@ export let arrayOfexamplesUser = (mathematical_sign) => {
 };
 
 export function creatingExampleForUser() {
+  let startTime = performance.now();
   const mainElement = document.querySelector("main");
   if (example < 10) {
     const divExample = document.createElement('div');
@@ -73,7 +74,7 @@ export function creatingExampleForUser() {
       divExample.remove();
       divCountingDownExamples.remove();
       button.remove()
-      checkingUserResponse(exampleFromTegP, userSresponse);//mathematical_sign
+      checkingUserResponse(exampleFromTegP, userSresponse, startTime);//mathematical_sign
     })
 
   } else {

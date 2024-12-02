@@ -5,7 +5,11 @@ let arrOfCorrectAnswers = [];
 let arrOfIncorrectAnswers = [];
 let example = 0;
 
-export function checkingUserResponse(exampleFromTegP, userSresponse) {
+export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) {
+  const endTime = performance.now();
+  console.log("startTime", startTime / 1000 / 60);
+  console.log("endTime", endTime / 1000 / 60)
+  console.log(((endTime - startTime) / 1000 / 60).toFixed(2));
   let responseFromUser = exampleFromTegP + userSresponse;
 
   let mainElement = document.querySelector("main");

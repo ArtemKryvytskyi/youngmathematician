@@ -5,12 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/asid.css">
   <link rel="stylesheet" href="style/style768px.css">
   <link rel="stylesheet" href="style/styleMax1023pxMin768px.css">
   <title>Young Mathematician</title>
 </head>
 
 <body>
+  <input type="checkbox" id="side-checkbox" />
+  <div class="side-panel">
+    <label class="side-button-2" for="side-checkbox">+</label>
+    <div class="side-title">
+      <p>Здравствуйте!</p>Ваш заказ.
+    </div>
+    <span class="asid-span">
+      Вы выбрали следующий товар:
+      <span class="asid-span-window"></span>
+      <span class="asid-span">Вы планируете купить товар на сумму</span>
+      <span class="plan-summer"></span>
+    </span>
+    <footer class="asid-footer">
+      <span>Введите номер телефона для обратной связи</span>
+      <input class="asid-input" type="tel" placeholder="+380..." size="12">
+      <button class="asid-button">КУПИТЬ</button>
+    </footer>
+  </div>
+  <div class="side-button-1-wr">
+    <label class="side-button-1" for="side-checkbox">
+      <div class="side-b side-open">I want my child to study</div>
+    </label>
+  </div>
   <header>
 
     <p>You can support the development of the project: <img src="img/west.png" class="westpac">
@@ -34,6 +58,7 @@
       <button class="btn" type="button" id="*">multiplication (*)</button>
       <button class="btn" type="button" id="/">division (/)</button>
     </div>
+    <div><a href="modalWindow/modalWindow.html">I want my child to study</a></div>
   </main>
   <footer>
     <!-- <span>Can support the development of the project: 00-000-0000-0000-00</span> -->
