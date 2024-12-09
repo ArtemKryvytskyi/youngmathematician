@@ -38,6 +38,7 @@ export function creatingExampleForUser() {
 
     const inputAnswer = document.createElement('input');
     inputAnswer.setAttribute("type", "text");
+    inputAnswer.setAttribute("id", "answer");
     inputAnswer.setAttribute("pattern", "\\d*");
     inputAnswer.setAttribute("inputmode", "numeric");
     inputAnswer.addEventListener('keydown', checkForEnter);
@@ -70,7 +71,8 @@ export function creatingExampleForUser() {
 
     button.addEventListener('click', () => {
       let exampleFromTegP = document.getElementById("respons").innerHTML;
-      let userSresponse = document.querySelector("input").value;
+      let userSresponse = document.getElementById("answer").value;
+      console.log(userSresponse);
       divExample.remove();
       divCountingDownExamples.remove();
       button.remove()

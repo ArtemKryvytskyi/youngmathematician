@@ -7,6 +7,7 @@ const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
 const buttonDivision = document.getElementById('/');
+const buttonRegistration = document.getElementById('registration');
 
 let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного запуска.
 
