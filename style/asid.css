@@ -3,6 +3,15 @@
    display: none;
 }
 
+.asid-input {
+   height: 2em;
+   width: 11em;
+}
+
+.side-title {
+   text-align: center
+}
+
 .side-panel {
    position: fixed;
    z-index: 999999;
