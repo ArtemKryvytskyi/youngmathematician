@@ -1,15 +1,33 @@
 //тут взаимодействие с страницей
-import { creatingTasksForUser } from "./creatingTasksForUser.js";
-import { arrOfExamplesAll } from "./array of examples up to 10.js";
 import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
 const buttonDivision = document.getElementById('/');
-const buttonRegistration = document.getElementById('registration');
+const buttonLearnChild = document.querySelector('label');
 
 let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного запуска.
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const closeBtn = document.getElementById("close");
+
+  // Показываем модальное окно при загрузке страницы
+  modal.style.display = "flex";
+
+  // Закрываем модальное окно при клике на крестик
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Закрываем модальное окно при клике вне его
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
 
 buttonAddition.addEventListener('click', () => {
   const mathematical_sign = "+";
@@ -39,34 +57,9 @@ buttonDivision.addEventListener('click', () => {
   divButton.remove();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("modal");
-  const closeBtn = document.getElementById("close");
-
-  // Показываем модальное окно при загрузке страницы
-  modal.style.display = "flex";
-
-  // Закрываем модальное окно при клике на крестик
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  // Закрываем модальное окно при клике вне его
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-});
-
-
-
-
-
-
-
-
-
+buttonLearnChild.addEventListener('click', () => {
+  window.location.href = "../StudyBlog/parent_sPage.html";
+})
 
 
 

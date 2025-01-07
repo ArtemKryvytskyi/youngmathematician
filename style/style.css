@@ -19,8 +19,6 @@
     height: 100%;
   }
 
-
-
   header,
   main,
   footer {
@@ -218,7 +216,7 @@
 
   input {
     height: 1em;
-    width: 1em;
+    width: 1.3em;
     margin-left: 10px;
 
     /* opacity: 0.5; */
