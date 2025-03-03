@@ -48,7 +48,7 @@ export function creatingExampleForUser() {
     const button = document.createElement('button');
     button.setAttribute('type', 'button');
     button.classList.add('btn');
-    button.textContent = 'Сheck my answer';
+    button.textContent = 'Click to check';
     mainElement.appendChild(button);
 
     function checkForEnter(e) {
