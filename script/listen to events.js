@@ -30,21 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //сообщение в телеграм
-const token = "7096847185:AAFb6KAwH9q1G0Xtd75uMjilvA7Httz0DTg";
-const chatId = "2068241986";
-const message = "Привет, меня запустили";
+// const token = "7096847185:AAFb6KAwH9q1G0Xtd75uMjilvA7Httz0DTg";
+// const chatId = "2068241986";
+// const message = "Привет, меня запустили";
 
-fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    chat_id: chatId,
-    text: message
-  })
-})
-  .then(response => response.json())
-  .then(data => console.log("Успех:", data))
-  .catch(error => console.error("Ошибка:", error));
+// fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+//   method: "POST",
+//   headers: { "Content-Type": "application/json" },
+//   body: JSON.stringify({
+//     chat_id: chatId,
+//     text: message
+//   })
+// })
+//   .then(response => response.json())
+//   .then(data => console.log("Успех:", data))
+//   .catch(error => console.error("Ошибка:", error));
 
 
 buttonAddition.addEventListener('click', () => {
@@ -75,9 +75,36 @@ buttonDivision.addEventListener('click', () => {
   divButton.remove();
 });
 
-buttonLearnChild.addEventListener('click', () => {
-  window.location.href = "../StudyBlog/parent_sPage.html";
-})
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const closeBtn = document.getElementById("close");
+
+  // Показываем модальное окно при загрузке страницы
+  modal.style.display = "flex";
+
+  // Закрываем модальное окно при клике на крестик
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Закрываем модальное окно при клике вне его
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+buttonRegistration.addEventListener('click', () => {
+  window.location.href = "Study/studyPage.html";
+});
+
+
+
+
+
+
+
 
 
 
