@@ -16,10 +16,14 @@ fileInput.addEventListener('change', () => {
   }
 });
 
-const uploadForm = document.getElementById('uploadForm');
+const uploadForm = document.getElementById('submit');
 uploadForm.addEventListener('submit', (e) => {
   e.preventDefault();
   alert('Image uploaded successfully!');
 });
 
-const
+const buttonApply = document.querySelector("button");
+buttonApply.addEventListener("click", () => {
+  const numberCoins = document.getElementById('numberCoins').value;
+  console.log(numberCoins);
+})
