@@ -8,9 +8,9 @@ let pointsForCorrectAnswer = 0;
 
 export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) {
   const endTime = performance.now();
-  // console.log("startTime", startTime / 1000 / 60);
-  // console.log("endTime", endTime / 1000 / 60)
-  // console.log(((endTime - startTime) / 1000 / 60).toFixed(2));
+  console.log("startTime", startTime / 1000);
+  console.log("endTime", endTime / 1000)
+  console.log(((endTime - startTime) / 1000).toFixed(0), "second");
 
   let responseFromUser = exampleFromTegP + userSresponse;
 
@@ -42,7 +42,7 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
   // console.log(mathematicalStandard);
   if (example < 10) {
     example++;
-    console.log(example);
+    // console.log(example);
     if (mathematicalStandard == userSresponse && userSresponse !== '') {
       divAnswer.innerHTML = "<p>" + "OK, You're right!!!" + "</p>";
       divAnswer.innerHTML += "<img src='./img/pngwing.com.png' height='200px' width='200px'>";
@@ -61,7 +61,7 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     }
 
   }
-  console.log(pointsForCorrectAnswer);
+  // console.log(pointsForCorrectAnswer);
 
   if (example < 10) {
     button.textContent = 'Click and get an example';

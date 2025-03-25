@@ -72,7 +72,7 @@ export function creatingExampleForUser() {
     button.addEventListener('click', () => {
       let exampleFromTegP = document.getElementById("respons").innerHTML;
       let userSresponse = document.getElementById("answer").value;
-      console.log(userSresponse);
+      // console.log(userSresponse);
       divExample.remove();
       divCountingDownExamples.remove();
       button.remove()

@@ -70,6 +70,12 @@
     flex-direction: column;
   }
 
+  .block-button {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+  }
+
   .goal {
     display: flex;
     flex-direction: column;
@@ -218,7 +224,7 @@
 
   input {
     height: 1em;
-    width: 1em;
+    width: 1.2em;
     margin-left: 10px;
 
     /* opacity: 0.5; */
