@@ -1,3 +1,8 @@
+//для создания объекта
+import { objectStudent } from "./objectStudent.js";
+export const student = Object.create(objectStudent)
+let pictureMotivation = String;
+
 //загрузка изображения
 const fileInput = document.getElementById('fileInput');
 const preview = document.getElementById('preview');
@@ -10,6 +15,8 @@ fileInput.addEventListener('change', () => {
     reader.onload = (e) => {
       const img = document.createElement('img');
       img.src = e.target.result;
+      student.img = img;
+      pictureMotivation = img;
       preview.appendChild(img);
     };
     reader.readAsDataURL(file);
@@ -25,5 +32,15 @@ uploadForm.addEventListener('submit', (e) => {
 const buttonApply = document.querySelector("button");
 buttonApply.addEventListener("click", () => {
   const numberCoins = document.getElementById('numberCoins').value;
-  console.log(numberCoins);
+  student.score = numberCoins;
+  console.log(numberCoins, pictureMotivation);
+  student.id = (generateSecureRandomId());
+  console.log(student);
+  window.location.href = "../index.html";
 })
+
+function generateSecureRandomId() {
+  const array = new Uint32Array(1);
+  window.crypto.getRandomValues(array);
+  return array[0];
+}
