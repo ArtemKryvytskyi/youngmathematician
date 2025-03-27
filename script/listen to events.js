@@ -103,6 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
 buttonRegistration.addEventListener('click', () => {
   window.location.href = "Study/studyPage.html";
 });
+buttonRegistration.addEventListener('click', () => {
+  window.location.href = "Study/studyPage.html";
+});
 
 
 
