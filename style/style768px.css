@@ -1,278 +1,294 @@
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
 
-    html,
-    body {
-      height: 95%;
+  html,
+  body {
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    /* width: 98%; */
+    /* @media (min-width: 1024px) */
+  }
 
-      display: flex;
-      flex-direction: column;
-      /* width: 98%; */
-      /* @media (min-width: 1024px) */
-    }
+  html {
+    display: flex;
+    flex-direction: column;
+    flex-basis: content;
+    justify-content: center;
+    height: 100%;
+  }
 
-    html {
-      display: flex;
-      flex-direction: column;
-      flex-basis: content;
-      justify-content: center;
+  header,
+  main,
+  footer {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
 
-      height: 100%;
-    }
+  .block-button {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 5.4em;
+    left: 4em;
+  }
 
-    header,
-    main,
-    footer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
+  header {
+    background-color: #4CAF50;
+    flex: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 5px;
+    font-size: 67%;
+  }
 
-    .block-button {
-      display: flex;
-      position: absolute;
-      top: 3em;
-    }
+  .westpac {
+    height: 15px;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    align-self: center;
+  }
 
+  main {
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2196F3;
+    background-image: url(../img/background3.jpg);
+    background-size: 97%;
+    /* Изменение размера картинки по размеру контейнера*/
+    background-position: center;
+    /* Центровка картинки */
+    background-repeat: no-repeat;
+    /* Картинка не повторяется */
+    /* border: 1px solid red; */
+  }
 
-    header {
-      background-color: #4CAF50;
-      flex: 1;
-      flex-direction: column;
-      flex-wrap: wrap;
-      padding: 5px;
-      font-size: 67%;
-    }
+  footer {
+    background-color: #f44336;
+    flex-direction: column;
+    font-size: 75%;
+  }
 
-    .westpac {
-      height: 15px;
-      width: 30px;
-      margin-left: 5px;
-      margin-right: 5px;
+  .goal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  }
 
-      align-self: center;
-    }
+  .neon {
+    position: relative;
+    overflow: hidden;
+    filter: brightness(200%);
+    opacity: 0.7;
+  }
 
-    main {
-      height: 98%;
+  .text {
+    background-color: blue;
+    color: white;
+    font-size: 1.15em;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    user-select: none;
+    padding: 5px;
+    letter-spacing: 0.1em;
+  }
 
-      display: flex;
-      flex-direction: column;
-      /* justify-content: space-evenly; */
-      align-items: center;
+  .text::before {
+    content: attr(data-text);
+    position: absolute;
+    color: orangered;
+    filter: blur(0.02em);
+    mix-blend-mode: difference;
+  }
 
-      background-color: #2196F3;
+  .gradient {
+    position: absolute;
+    background: linear-gradient(45deg, red, gold, lightgreen, gold, red);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: multiply;
+  }
 
-      background-image: url(../img/background3.jpg);
-      background-size: 97%;
-      /* Изменение размера картинки по размеру контейнера*/
-      background-position: center;
-      /* Центровка картинки */
-      background-repeat: no-repeat;
-      /* Картинка не повторяется */
-      /* border: 1px solid red; */
-    }
+  .spotlight {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle,
+        white,
+        transparent 25%) center / 25% 25%,
+      radial-gradient(circle,
+        white,
+        black 25%) center / 12.5% 12.5%;
+    animation: light 5s linear infinite;
+    mix-blend-mode: color-dodge;
+  }
 
-    footer {
-      background-color: #f44336;
-      flex-direction: column;
-      font-size: 75%;
-    }
-
-    .goal {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: justify;
-      box-sizing: border-box;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-    }
-
-    .neon {
-      position: relative;
-      overflow: hidden;
-      filter: brightness(200%);
-      opacity: 0.7;
-    }
-
-    .text {
-      background-color: blue;
-      color: white;
-      font-size: 1.15em;
-      font-weight: bold;
-      font-family: sans-serif;
-      text-transform: uppercase;
-      position: relative;
-      user-select: none;
-      padding: 5px;
-      letter-spacing: 0.1em;
-    }
-
-    .text::before {
-      content: attr(data-text);
-      position: absolute;
-      color: orangered;
-      filter: blur(0.02em);
-      mix-blend-mode: difference;
-    }
-
-    .gradient {
-      position: absolute;
-      background: linear-gradient(45deg, red, gold, lightgreen, gold, red);
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      mix-blend-mode: multiply;
-    }
-
-    .spotlight {
-      position: absolute;
-      top: -100%;
-      left: -100%;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(circle,
-          white,
-          transparent 25%) center / 25% 25%,
-        radial-gradient(circle,
-          white,
-          black 25%) center / 12.5% 12.5%;
-      animation: light 5s linear infinite;
-      mix-blend-mode: color-dodge;
-    }
-
-    @keyframes light {
-      to {
-        transform: translate(50%, 50%);
-      }
-    }
-
-    .btn {
-      border-radius: 10px;
-      color: white;
-      transition: .2s linear;
-      background: #0B63F6;
-      font-size: x-large;
-      margin-top: 50px;
-    }
-
-    .btn:hover {
-      box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
-    }
-
-    .button,
-    .divAnswer,
-    .divExample,
-    .CountingDownExamples,
-    .result {
-      box-sizing: border-box;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-
-      margin-top: 20px;
-      padding: 10px;
-
-      font-size: 2.2em;
-      background-color: rgba(0, 1, 0, 0.5);
-      text-shadow:
-        -1px -1px #FFF,
-        -2px -2px #FFF,
-        -1px 1px #FFF,
-        -2px 2px #FFF,
-        1px 1px #FFF,
-        2px 2px #FFF,
-        1px -1px #FFF,
-        2px -2px #FFF,
-        -3px -3px 2px #BBB,
-        -3px 3px 2px #BBB,
-        3px 3px 2px #BBB,
-        3px -3px 2px #BBB;
-      color: steelblue;
-    }
-
-    .button,
-    .CountingDownExamples,
-    .result {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .divExample {
-      display: flex;
-      align-items: center;
-      font-size: 4em;
-    }
-
-    .divAnswer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: xx-large;
-    }
-
-    .CountingDownExamples {
-      color: slateblue;
-      font-size: 1.5em;
-    }
-
-    .result>p {
-      width: 12em;
-      color: #f44336;
-    }
-
-    .result>img {
-      width: 10em;
-    }
-
-    p {
-      display: flex;
-      margin: 1px;
-    }
-
-    input {
-      height: 1.5em;
-      width: 1.5em;
-      margin-left: 10px;
-
-      font-size: 1em;
-      font-weight: bold;
-      text-align: center;
-
-      text-shadow:
-        -1px -1px #FFF,
-        -2px -2px #FFF,
-        -1px 1px #FFF,
-        -2px 2px #FFF,
-        1px 1px #FFF,
-        2px 2px #FFF,
-        1px -1px #FFF,
-        2px -2px #FFF,
-        -3px -3px 2px #BBB,
-        -3px 3px 2px #BBB,
-        3px 3px 2px #BBB,
-        3px -3px 2px #BBB;
-      color: red;
-    }
-
-    .correct,
-    .incorrect {
-      color: black;
-      font-size: 40px;
-      text-shadow: none;
-      padding: 10px;
-    }
-
-    .correct {
-      background-color: rgb(130, 231, 47);
-      margin-bottom: 10px;
-    }
-
-    .incorrect {
-      background-color: rgb(250, 67, 67);
+  @keyframes light {
+    to {
+      transform: translate(50%, 50%);
     }
   }
+
+  .btn {
+    border-radius: 10px;
+    color: white;
+    transition: .2s linear;
+    background: #0B63F6;
+    font-size: x-large;
+    margin-top: 50px;
+  }
+
+  .btn:hover {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #3C82F8;
+  }
+
+  .button,
+  .divAnswer,
+  .divExample,
+  .CountingDownExamples,
+  .result {
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 2.2em;
+    background-color: rgba(0, 1, 0, 0.5);
+    text-shadow:
+      -1px -1px #FFF,
+      -2px -2px #FFF,
+      -1px 1px #FFF,
+      -2px 2px #FFF,
+      1px 1px #FFF,
+      2px 2px #FFF,
+      1px -1px #FFF,
+      2px -2px #FFF,
+      -3px -3px 2px #BBB,
+      -3px 3px 2px #BBB,
+      3px 3px 2px #BBB,
+      3px -3px 2px #BBB;
+    color: steelblue;
+  }
+
+  .button,
+  .CountingDownExamples,
+  .result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divExample {
+    display: flex;
+    align-items: center;
+    font-size: 4em;
+  }
+
+  .divAnswer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: xx-large;
+  }
+
+  .CountingDownExamples {
+    color: slateblue;
+    font-size: 1.5em;
+  }
+
+  .result>p {
+    width: 12em;
+    color: #f44336;
+  }
+
+  .result>img {
+    width: 10em;
+  }
+
+  p {
+    margin: 1px;
+  }
+
+  input {
+    height: 1.5em;
+    width: 1.5em;
+    margin-left: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow:
+      -1px -1px #FFF,
+      -2px -2px #FFF,
+      -1px 1px #FFF,
+      -2px 2px #FFF,
+      1px 1px #FFF,
+      2px 2px #FFF,
+      1px -1px #FFF,
+      2px -2px #FFF,
+      -3px -3px 2px #BBB,
+      -3px 3px 2px #BBB,
+      3px 3px 2px #BBB,
+      3px -3px 2px #BBB;
+    color: red;
+  }
+
+  .correct,
+  .incorrect {
+    color: black;
+    font-size: 40px;
+    text-shadow: none;
+    padding: 10px;
+  }
+
+  .correct {
+    background-color: rgb(130, 231, 47);
+    margin-bottom: 10px;
+  }
+
+  .incorrect {
+    background-color: rgb(250, 67, 67);
+  }
+
+  /* панель студента */
+  .info-student {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 1, 0, 0.5);
+  }
+
+  .info-student>img {
+    height: 2em;
+  }
+
+  .info-student>.imgMotivational {
+    height: 4em;
+  }
+
+  .info-student>p {
+    font-size: 1.5em;
+    color: gold;
+    margin-left: 0.5em;
+    margin-right: 1em;
+  }
+}

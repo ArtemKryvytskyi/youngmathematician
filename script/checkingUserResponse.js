@@ -1,16 +1,22 @@
 import { creatingExampleForUser } from "./creatingExampleForUser.js";
-// import { evaluate } from 'mathjs';
+import { student, infoBoard } from "./creatingStudent.js";
+import { deleteDatabase, updateStudentField } from "./studentDB.js";
+import { megaFirework } from "./creating megaFirework.js";
 
 let arrOfCorrectAnswers = [];
 let arrOfIncorrectAnswers = [];
 let example = 0;
 let pointsForCorrectAnswer = 0;
+let studentScoreNow = "";
+let infoboard = "";
+// let student_ScoreAll = "";
+console.log("checkingUserResponse", student);
 
 export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) {
   const endTime = performance.now();
-  console.log("startTime", startTime / 1000);
-  console.log("endTime", endTime / 1000)
-  console.log(((endTime - startTime) / 1000).toFixed(0), "second");
+  // console.log("startTime", startTime / 1000);
+  // console.log("endTime", endTime / 1000)
+  // console.log(((endTime - startTime) / 1000).toFixed(0), "second");
 
   let responseFromUser = exampleFromTegP + userSresponse;
 
@@ -48,6 +54,11 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       divAnswer.innerHTML += "<img src='./img/pngwing.com.png' height='200px' width='200px'>";
       arrOfCorrectAnswers.push(responseFromUser);
       pointsForCorrectAnswer++;
+      if (student !== undefined) {
+        studentScoreNow = document.getElementById('score-now');
+        studentScoreNow.textContent = pointsForCorrectAnswer;
+      }
+
       // console.log(arrOfCorrectAnswers);
     } else if (example <= 9) {
       divAnswer.innerHTML = "<p>" + "Oh No, it's a mistake." + "<img src='./img/pngsad.com.png' height='100px' width='100px'>" + "</p>";
@@ -75,18 +86,27 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     divAnswer.remove();
     button.remove();
     if (example == 10) {
+      console.log("я запускаю createResult();")
       createResult();
       arrOfCorrectAnswers = [];
       arrOfIncorrectAnswers = [];
       example = 0;
+      // document.getElementById("score-all").textContent = student.studentScoreAll;
+      // stydentScoreNow.textContent = 0;
+      // button.textContent = 'Click on the button soon, maybe you deserve a gift?!!';
+      // mainElement.appendChild(button);
     } else {
+      console.log("я запускаю   creatingExampleForUser()", example);
       creatingExampleForUser();
+      infoboard.remove();
+
     }
   })
 
+  let divResult = document.createElement('div');
+
   function createResult() {
-    // console.log("I'm work")
-    let divResult = document.createElement('div');
+    console.log(student);
     divResult.classList.add('result');
     // divResult.innerHTML = "<div class = 'correct'>" + `${arrOfCorrectAnswers}` + "</div>";
     // divResult.innerHTML += "<div class = 'incorrect'>" + `${arrOfIncorrectAnswers}` + "</div>";
@@ -103,10 +123,32 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
         `<p>You got ${pointsForCorrectAnswer} points. Fantastic result! 10 out of 10. Keep it up!</p>` +
         "<img src='./img/10points.gif'>"
     }
+    if (student !== undefined) {
+      let student_ScoreAll = student.studentScoreAll += pointsForCorrectAnswer;
+      console.log(student.id, student_ScoreAll);
+      updateStudentField(student.id, { studentScoreAll: student_ScoreAll });
+      let studentScoreAll = document.getElementById('score-all');
+      studentScoreAll.textContent = student_ScoreAll;
+      infoboard = document.querySelector(".info-student");
+      studentScoreNow.textContent = pointsForCorrectAnswer;
+
+    }
+    if (student !== undefined && student.parantScore <= student.studentScoreAll) {
+      setTimeout(() => {
+        createResultForGift();
+      }, 3000);
+    }
     pointsForCorrectAnswer = 0;
     mainElement.appendChild(divResult);
     button.textContent = 'Click to return to the start page';
     mainElement.appendChild(button);
+  }
+  function createResultForGift() {
+    divResult.innerHTML =
+      `<p>You deserve a gift from your parents. Tell them about it.</p> ` +
+      "<img src='./img/gift.png' class = 'gift'>";
+    deleteDatabase();
+    megaFirework();
   }
 }
 

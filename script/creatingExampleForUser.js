@@ -5,6 +5,7 @@ import { arrOfExamplesAll } from "./array of examples up to 10.js"
 
 let example = 0;
 const returnPage = document.querySelector(".button");
+console.log(returnPage);
 
 export let arrayOfexamplesUser = (mathematical_sign) => {
   switch (mathematical_sign) {
@@ -30,6 +31,7 @@ export let arrayOfexamplesUser = (mathematical_sign) => {
 export function creatingExampleForUser() {
   let startTime = performance.now();
   const mainElement = document.querySelector("main");
+  console.log(example);
   if (example < 10) {
     const divExample = document.createElement('div');
     divExample.classList.add('divExample');
@@ -80,10 +82,11 @@ export function creatingExampleForUser() {
     })
 
   } else {
-    let divResultTest = document.querySelector(".result");
-    divResultTest.remove();
+    // let divResultTest = document.querySelector(".result");
+    // divResultTest.remove();
     // console.log(divResultTest);
-    mainElement.appendChild(returnPage);
+    // mainElement.appendChild(returnPage);
+    location.reload();
     example = 0;
   }
 }

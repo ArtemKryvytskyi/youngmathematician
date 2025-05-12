@@ -48,7 +48,7 @@
 
       display: flex;
       flex-direction: column;
-      /* justify-content: space-evenly; */
+      justify-content: space-evenly;
       align-items: center;
 
       background-color: #2196F3;
@@ -140,6 +140,13 @@
       }
     }
 
+    .block-button {
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      top: 3em;
+    }
+
     .btn {
       border-radius: 10px;
       color: white;
@@ -208,7 +215,6 @@
     }
 
     p {
-      display: flex;
       margin: 1px;
     }
 
@@ -252,5 +258,43 @@
 
     .incorrect {
       background-color: rgb(250, 67, 67);
+    }
+
+    /* панель студента */
+    .info-student {
+      display: flex;
+      align-items: center;
+      text-shadow: -1px -1px #FFF, -2px -2px #FFF, -1px 1px #FFF, -2px 2px #FFF, 1px 1px #FFF, 2px 2px #FFF, 1px -1px #FFF, 2px -2px #FFF, -3px -3px 2px #BBB, -3px 3px 2px #BBB, 3px 3px 2px #BBB, 3px -3px 2px #BBB;
+      box-sizing: border-box;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 1, 0, 0.5);
+      /* flex-wrap: nowrap; */
+      align-items: anchor-center;
+      text-shadow: -1px -1px #FFF, -2px -2px #FFF, -1px 1px #FFF, -2px 2px #FFF, 1px 1px #FFF, 2px 2px #FFF, 1px -1px #FFF, 2px -2px #FFF, -3px -3px 2px #BBB, -3px 3px 2px #BBB, 3px 3px 2px #BBB, 3px -3px 2px #BBB;
+
+      box-sizing: border-box;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 1, 0, 0.5);
+    }
+
+    .info-student>img {
+      height: 4em;
+    }
+
+    .info-student>.imgMotivational {
+      height: 6em;
+    }
+
+    .info-student>p {
+      font-size: 3em;
+      color: gold;
+      margin-left: 0.5em;
+      margin-right: 1em;
+    }
+
+    .gift {
+      height: 4em;
     }
   }
