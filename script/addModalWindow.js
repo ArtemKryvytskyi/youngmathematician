@@ -1,6 +1,5 @@
 import { creatingStudent } from "./creatingStudent.js";
 export function addModalWindow() {
-  console.log('click2')
   const newModalWindow = document.createElement('div');
   newModalWindow.innerHTML = `
   <div class="upload-container">

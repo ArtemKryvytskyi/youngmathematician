@@ -10,7 +10,6 @@ let pointsForCorrectAnswer = 0;
 let studentScoreNow = "";
 let infoboard = "";
 // let student_ScoreAll = "";
-console.log("checkingUserResponse", student);
 
 export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) {
   const endTime = performance.now();
@@ -86,7 +85,6 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     divAnswer.remove();
     button.remove();
     if (example == 10) {
-      console.log("я запускаю createResult();")
       createResult();
       arrOfCorrectAnswers = [];
       arrOfIncorrectAnswers = [];
@@ -96,17 +94,18 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       // button.textContent = 'Click on the button soon, maybe you deserve a gift?!!';
       // mainElement.appendChild(button);
     } else {
-      console.log("я запускаю   creatingExampleForUser()", example);
+      // console.log("я запускаю   creatingExampleForUser()", example);
       creatingExampleForUser();
-      infoboard.remove();
-
+      // if (student !== undefined) {
+      //   infoboard.remove();
+      // }
     }
   })
 
   let divResult = document.createElement('div');
 
   function createResult() {
-    console.log(student);
+    // console.log(student);
     divResult.classList.add('result');
     // divResult.innerHTML = "<div class = 'correct'>" + `${arrOfCorrectAnswers}` + "</div>";
     // divResult.innerHTML += "<div class = 'incorrect'>" + `${arrOfIncorrectAnswers}` + "</div>";
@@ -125,12 +124,13 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     }
     if (student !== undefined) {
       let student_ScoreAll = student.studentScoreAll += pointsForCorrectAnswer;
-      console.log(student.id, student_ScoreAll);
+
+      // console.log(student.id, student_ScoreAll);
       updateStudentField(student.id, { studentScoreAll: student_ScoreAll });
       let studentScoreAll = document.getElementById('score-all');
       studentScoreAll.textContent = student_ScoreAll;
       infoboard = document.querySelector(".info-student");
-      studentScoreNow.textContent = pointsForCorrectAnswer;
+      studentScoreNow.textContent = 0;
 
     }
     if (student !== undefined && student.parantScore <= student.studentScoreAll) {

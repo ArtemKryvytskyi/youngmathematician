@@ -17,7 +17,7 @@ export function creatingStudent(imgMotivational) {
 }
 
 export function getStudentDB(get_Student) {
-  console.log("getStudentDB - ", get_Student);
+  // console.log("getStudentDB - ", get_Student);
   student = get_Student;
   infoBoard(student)
 }
@@ -42,7 +42,7 @@ function saveimgMotivational(imgMotivational) {
         // сохраняем в объекте
         student.imgMotivational = imageData;
 
-        console.log('Картинка сохранена в объекте:', student.imgMotivational);
+        // console.log('Картинка сохранена в объекте:', student.imgMotivational);
       };
     };
   });

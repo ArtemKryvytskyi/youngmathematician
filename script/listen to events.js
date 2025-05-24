@@ -11,10 +11,11 @@ const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
 const buttonDivision = document.getElementById('/');
 
+
 let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного запуска.
 
 dbExists('DB_YoungMathematician').then(exists => {
-  console.log(exists);
+  // console.log(exists);
   if (exists == false) {
     const buttonParant = document.createElement('div');
     buttonParant.classList.add("block-button");
@@ -34,7 +35,7 @@ dbExists('DB_YoungMathematician').then(exists => {
 
   } else {
     getAllStudents().then(get_Student => {
-      console.log(get_Student[0]);  // Теперь у тебя есть массив данных
+      // console.log(get_Student[0]);  // Теперь у тебя есть массив данных
       getStudentDB(get_Student[0]);
     }).catch(error => {
       console.error('Ошибка при получении студентов:', error);
@@ -65,9 +66,16 @@ dbExists('DB_YoungMathematician').then(exists => {
 // });
 
 //сообщение в телеграм
-// const token = "7096847185:AAFb6KAwH9q1G0Xtd75uMjilvA7Httz0DTg";
-// const chatId = "2068241986";
-// const message = "Привет, меня запустили";
+const token = "7096847185:AAFb6KAwH9q1G0Xtd75uMjilvA7Httz0DTg";
+const chatId = "2068241986";
+let message = "Привет, меня запустили";
+
+// fetch('https://ipapi.co/json/')
+//   .then(res => res.json())
+//   .then(data => {
+//     console.log(`Город: ${data.city}, Страна: ${data.country_name}, IP: ${data.ip}`);
+//     message += `Город: ${data.city}, Страна: ${data.country_name}, IP: ${data.ip}`
+//   });
 
 // fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
 //   method: "POST",
@@ -81,12 +89,38 @@ dbExists('DB_YoungMathematician').then(exists => {
 //   .then(data => console.log("Успех:", data))
 //   .catch(error => console.error("Ошибка:", error));
 
+async function sendGeoMessage() {
+  let message = "Привет, меня запустили\n";
+
+  try {
+    const res = await fetch('https://ipapi.co/json/');
+    const data = await res.json();
+    message += `Город: ${data.city}, Страна: ${data.country_name}, IP: ${data.ip}`;
+
+    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: message
+      })
+    });
+
+    const result = await response.json();
+    console.log("Успех:", result);
+  } catch (error) {
+    console.error("Ошибка:", error);
+  }
+}
+sendGeoMessage();
+
 
 buttonAddition.addEventListener('click', () => {
   const mathematical_sign = "+";
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
+  document.querySelector('.block-button').remove();
 });
 
 buttonSubtraction.addEventListener('click', () => {
@@ -94,6 +128,7 @@ buttonSubtraction.addEventListener('click', () => {
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
+  document.querySelector('.block-button').remove();
 });
 
 buttonMultiplication.addEventListener('click', () => {
@@ -101,6 +136,7 @@ buttonMultiplication.addEventListener('click', () => {
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
+  document.querySelector('.block-button').remove();
 });
 
 buttonDivision.addEventListener('click', () => {
@@ -108,6 +144,7 @@ buttonDivision.addEventListener('click', () => {
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
+  document.querySelector('.block-button').remove();
 });
 
 

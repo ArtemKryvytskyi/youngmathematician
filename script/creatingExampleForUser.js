@@ -5,7 +5,7 @@ import { arrOfExamplesAll } from "./array of examples up to 10.js"
 
 let example = 0;
 const returnPage = document.querySelector(".button");
-console.log(returnPage);
+// console.log(returnPage);
 
 export let arrayOfexamplesUser = (mathematical_sign) => {
   switch (mathematical_sign) {
@@ -31,7 +31,7 @@ export let arrayOfexamplesUser = (mathematical_sign) => {
 export function creatingExampleForUser() {
   let startTime = performance.now();
   const mainElement = document.querySelector("main");
-  console.log(example);
+  // console.log(example);
   if (example < 10) {
     const divExample = document.createElement('div');
     divExample.classList.add('divExample');

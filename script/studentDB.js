@@ -5,13 +5,13 @@ const DB_VERSION = 1;
 const STORE_NAME = 'student';
 
 export async function dbExists(DB_NAME) {
-  console.log(DB_NAME);
+  // console.log(DB_NAME);
   if (!indexedDB.databases) {
     console.warn('indexedDB.databases() не поддерживается в этом браузере');
     return null; // fallback на метод ниже
   }
   const dbs = await indexedDB.databases();              // получаем список всех БД
-  console.log(dbs);
+  // console.log(dbs);
   return dbs.some(info => info.name === DB_NAME);        // проверяем имя
 }
 
@@ -68,7 +68,7 @@ export async function updateStudentField(studentId, upstudentScoreNow, upstudent
   // Обновляем только переданные поля
   Object.assign(existingStudent, upstudentScoreNow, upstudentScoreAll);
 
-  console.log(existingStudent);
+  // console.log(existingStudent);
 
   store.put(existingStudent);
 
@@ -109,7 +109,7 @@ export function deleteDatabase() {
   const request = indexedDB.deleteDatabase(DB_NAME);
 
   request.onsuccess = function () {
-    console.log('База данных успешно удалена.');
+    // console.log('База данных успешно удалена.');
   };
 
   request.onerror = function (event) {
