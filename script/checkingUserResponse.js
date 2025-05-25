@@ -98,7 +98,7 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       updateStudentField(student.id, { studentScoreAll: student_ScoreAll });
       let studentScoreAll = document.getElementById('score-all');
       studentScoreAll.textContent = student_ScoreAll;
-      infoboard = document.querySelector(".info-student");
+      let infoboard = document.querySelector(".info-student");
       studentScoreNow.textContent = 0;
     }
     if (student !== undefined && student.parantScore <= student.studentScoreAll) {
