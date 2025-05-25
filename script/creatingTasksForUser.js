@@ -1,9 +1,7 @@
-//создаю массив из 10 примеров.
 let randomNumber = (min, max) => {
   let rNumber = (Math.floor(Math.random() * (max - min + 1)) + min);
   return rNumber;
 }
-
 export const creatingTasksForUser = (arrOfTasks) => {
   let getOfExample = (arrOfTasks) => {
     const min = 0;
@@ -12,7 +10,6 @@ export const creatingTasksForUser = (arrOfTasks) => {
     let example = (arrOfTasks[`${rNumber}`]);//меняеться.
     return example;
   }
-
   let getArrOfExemple = (arrOfTasks) => {
     let arrOfExamples = [];
     do {
@@ -25,9 +22,7 @@ export const creatingTasksForUser = (arrOfTasks) => {
     arrOfExamples = arrOfExamples.filter((item, index) => arrOfExamples.indexOf(item) === index);
     return arrOfExamples;
   }
-
   let arrOfExamples = 0;
-
   do {
     arrOfExamples = getArrOfExemple(arrOfTasks);
   }

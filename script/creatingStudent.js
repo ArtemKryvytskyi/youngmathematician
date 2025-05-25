@@ -9,50 +9,33 @@ export function creatingStudent(imgMotivational) {
   student.imgMotivational = "./img/target.png";
   if (imgMotivational) student.imgMotivational = imgMotivational;
   student.parantScore = document.getElementById("parantScore").value;
-
   studentDB.openDB();
   studentDB.saveStudent(student);
   infoBoard(student)
   document.querySelector(".modal-parant").remove();
 }
-
 export function getStudentDB(get_Student) {
-  // console.log("getStudentDB - ", get_Student);
   student = get_Student;
   infoBoard(student)
 }
-
-// Использование crypto.getRandomValues()(более криптографически стойкий вариант)
 function generateSecureRandomId() {
   const array = new Uint32Array(1);
   window.crypto.getRandomValues(array);
   return array[0];
 }
-
 function saveimgMotivational(imgMotivational) {
   imgMotivational.addEventListener('change', function () {
-    const file = this.files[0]; // получаем выбранный файл
-
+    const file = this.files[0];
     if (file) {
       const reader = new FileReader();
-
       reader.onload = function (event) {
-        const imageData = event.target.result; // DataURL вида "data:image/jpeg;base64,..."
-
-        // сохраняем в объекте
+        const imageData = event.target.result;
         student.imgMotivational = imageData;
-
-        // console.log('Картинка сохранена в объекте:', student.imgMotivational);
       };
     };
   });
 }
-
 export function infoBoard(student) {
-  // console.log("fun infoBoard");
-  // console.log(student.id);
-  // console.log(get_Student);
-  // if (student.id == 0) student = get_Student;
   console.log("infoBord", student);
   const infoStudent = document.createElement("div");
   infoStudent.classList.add("info-student");
@@ -62,7 +45,6 @@ export function infoBoard(student) {
   <img src="./img/gold_coins_pot.png" class="coin-pod">
   <p class="text-parantScore" id="score-all">${student.studentScoreAll}</p>
   <img src="./img/coin_pig1.png">
-  <p class="text-parantScore" id="score-now">${student.studentScoreNow}</p>
-  `
+  <p class="text-parantScore" id="score-now">${student.studentScoreNow}</p>`
   document.querySelector('main').prepend(infoStudent);
 }
