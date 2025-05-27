@@ -2,7 +2,7 @@ import { addModalWindow } from "./addModalWindow.js";
 import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 import { creatingBattonStudy } from "./creatingInfoBoard.js";
 import { infoBoard } from "./creatingStudent.js";
-import { dbExists, getAllStudents } from "./studentDB.js";
+import { dbExists, getAllStudents, deleteDatabase } from "./studentDB.js";
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
