@@ -16,21 +16,16 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
   // console.log("startTime", startTime / 1000);
   // console.log("endTime", endTime / 1000)
   // console.log(((endTime - startTime) / 1000).toFixed(0), "second");
-
   let responseFromUser = exampleFromTegP + userSresponse;
-
   let mainElement = document.querySelector("main");
   const divAnswer = document.createElement('div');
   divAnswer.classList.add('divAnswer');
   mainElement.appendChild(divAnswer);
-
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.classList.add('btn');
-
   const arrNumbers = exampleFromTegP.match(/-?\d+/g).map(Number);
   const mathematical_sign = exampleFromTegP.match(/[+\-*:]/)[0];
-
   let getmathematicalStandard = (mathematical_sign) => {
     switch (mathematical_sign) {
       case "+":
@@ -57,7 +52,6 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
         studentScoreNow = document.getElementById('score-now');
         studentScoreNow.textContent = pointsForCorrectAnswer;
       }
-
       // console.log(arrOfCorrectAnswers);
     } else if (example <= 9) {
       divAnswer.innerHTML = "<p>" + "Oh No, it's a mistake." + "<img src='./img/pngsad.com.png' height='100px' width='100px'>" + "</p>";
@@ -69,10 +63,8 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       arrOfIncorrectAnswers.push(responseFromUser);
       // console.log("I work!", `${example}`);
     }
-
   }
   // console.log(pointsForCorrectAnswer);
-
   if (example < 10) {
     button.textContent = 'Click and get an example';
     mainElement.appendChild(button);
@@ -80,7 +72,6 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     button.textContent = 'Click and find out the result';
     mainElement.appendChild(button);
   }
-
   button.addEventListener('click', () => {
     divAnswer.remove();
     button.remove();
@@ -101,9 +92,7 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       // }
     }
   })
-
   let divResult = document.createElement('div');
-
   function createResult() {
     // console.log(student);
     divResult.classList.add('result');
@@ -124,14 +113,12 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     }
     if (student !== undefined) {
       let student_ScoreAll = student.studentScoreAll += pointsForCorrectAnswer;
-
       // console.log(student.id, student_ScoreAll);
       updateStudentField(student.id, { studentScoreAll: student_ScoreAll });
       let studentScoreAll = document.getElementById('score-all');
       studentScoreAll.textContent = student_ScoreAll;
       infoboard = document.querySelector(".info-student");
       studentScoreNow.textContent = 0;
-
     }
     if (student !== undefined && student.parantScore <= student.studentScoreAll) {
       setTimeout(() => {

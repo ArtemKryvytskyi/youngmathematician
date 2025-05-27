@@ -1,42 +1,34 @@
-//тут взаимодействие с страницей
-// import { creatingTasksForUser } from "./creatingTasksForUser.js";
-// import { arrOfExamplesAll } from "./array of examples up to 10.js";
 import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 import { addModalWindow } from "./addModalWindow.js";
-import { dbExists, getAllStudents, getStudent } from "./studentDB.js";
-import { getStudentDB } from "./creatingStudent.js";
+import { dbExists, getAllStudents } from "./studentDB.js";
+import { infoBoard } from "./creatingStudent.js";
+import { creatingBattonStudy } from "./creatingInfoBoard.js";
 
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
 const buttonDivision = document.getElementById('/');
-
-
 let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного запуска.
 
 dbExists('DB_YoungMathematician').then(exists => {
   // console.log(exists);
   if (exists == false) {
-    const buttonParant = document.createElement('div');
-    buttonParant.classList.add("block-button");
-    buttonParant.innerHTML = `
-      <div class="side-button-1-wr" id = "openModalBtn">
-        <label class="side-button-1" for="side-checkbox">
-          <div class="side-b side-open">click if you want your child to study</div>
-        </label>
-      </div>`
-    document.querySelector('body').prepend(buttonParant);
+    creatingBattonStudy();
     //ищу кнопку "нажми если ты хочешь"
     const buttonOpenModalWindowParant = document.getElementById("openModalBtn");
     buttonOpenModalWindowParant.addEventListener('click', () => {
       addModalWindow();
       document.querySelector('.block-button').remove();
     })
-
   } else {
     getAllStudents().then(get_Student => {
+      console.log();
+      if (get_Student[0].parantScore <= get_Student[0].studentScoreAll) {
+        deleteDatabase();
+        creatingBattonStudy();
+      }
       // console.log(get_Student[0]);  // Теперь у тебя есть массив данных
-      getStudentDB(get_Student[0]);
+      infoBoard(get_Student[0]);
     }).catch(error => {
       console.error('Ошибка при получении студентов:', error);
     });
@@ -91,12 +83,10 @@ let message = "Привет, меня запустили";
 
 async function sendGeoMessage() {
   let message = "Привет, меня запустили\n";
-
   try {
     const res = await fetch('https://ipapi.co/json/');
     const data = await res.json();
     message += `Город: ${data.city}, Страна: ${data.country_name}, IP: ${data.ip}`;
-
     const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -105,15 +95,13 @@ async function sendGeoMessage() {
         text: message
       })
     });
-
     const result = await response.json();
     console.log("Успех:", result);
   } catch (error) {
     console.error("Ошибка:", error);
   }
 }
-sendGeoMessage();
-
+// sendGeoMessage();
 
 buttonAddition.addEventListener('click', () => {
   const mathematical_sign = "+";
@@ -122,7 +110,6 @@ buttonAddition.addEventListener('click', () => {
   divButton.remove();
   document.querySelector('.block-button').remove();
 });
-
 buttonSubtraction.addEventListener('click', () => {
   const mathematical_sign = "-";
   getArrOfExamplesUser(mathematical_sign);
@@ -130,7 +117,6 @@ buttonSubtraction.addEventListener('click', () => {
   divButton.remove();
   document.querySelector('.block-button').remove();
 });
-
 buttonMultiplication.addEventListener('click', () => {
   const mathematical_sign = "*";
   getArrOfExamplesUser(mathematical_sign);
@@ -138,7 +124,6 @@ buttonMultiplication.addEventListener('click', () => {
   divButton.remove();
   document.querySelector('.block-button').remove();
 });
-
 buttonDivision.addEventListener('click', () => {
   const mathematical_sign = "/";
   getArrOfExamplesUser(mathematical_sign);
@@ -146,10 +131,3 @@ buttonDivision.addEventListener('click', () => {
   divButton.remove();
   document.querySelector('.block-button').remove();
 });
-
-
-
-// megaFirework();  // Запуск
-
-
-// 

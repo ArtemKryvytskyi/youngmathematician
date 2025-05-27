@@ -37,7 +37,6 @@ export function creatingExampleForUser() {
     divExample.classList.add('divExample');
     divExample.innerHTML = "<p id='respons'>" + `${arrayOfexamplesUser[example]} = ` + "</p>";// меняется
     mainElement.appendChild(divExample);
-
     const inputAnswer = document.createElement('input');
     inputAnswer.setAttribute("type", "text");
     inputAnswer.setAttribute("id", "answer");
@@ -46,13 +45,11 @@ export function creatingExampleForUser() {
     inputAnswer.addEventListener('keydown', checkForEnter);
     divExample.appendChild(inputAnswer);
     inputAnswer.focus()
-
     const button = document.createElement('button');
     button.setAttribute('type', 'button');
     button.classList.add('btn');
     button.textContent = 'Click to check';
     mainElement.appendChild(button);
-
     function checkForEnter(e) {
       if (e.keyCode == 13) {
         document.querySelector(".btn").click();
@@ -60,17 +57,14 @@ export function creatingExampleForUser() {
     }
     const divCountingDownExamples = document.createElement('div');
     divCountingDownExamples.classList.add('CountingDownExamples');
-
     // console.log(example);
     example++;
-
     if (example < 10) {
       divCountingDownExamples.innerHTML = "<span>" + `There are still ${arrayOfexamplesUser.length - example} examples to solve` + "</span>";
     } else if (example == 10) {
       divCountingDownExamples.innerHTML = "<span>" + `This is the last example` + "</span>";
     }
     mainElement.appendChild(divCountingDownExamples);
-
     button.addEventListener('click', () => {
       let exampleFromTegP = document.getElementById("respons").innerHTML;
       let userSresponse = document.getElementById("answer").value;
@@ -80,7 +74,6 @@ export function creatingExampleForUser() {
       button.remove()
       checkingUserResponse(exampleFromTegP, userSresponse, startTime);//mathematical_sign
     })
-
   } else {
     // let divResultTest = document.querySelector(".result");
     // divResultTest.remove();
