@@ -1,7 +1,9 @@
-import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 import { addModalWindow } from "./addModalWindow.js";
-import { dbExists, getAllStudents, getStudent } from "./studentDB.js";
-import { getStudentDB } from "./creatingStudent.js";
+import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
+import { creatingBattonStudy } from "./creatingInfoBoard.js";
+import { infoBoard } from "./creatingStudent.js";
+import { dbExists, getAllStudents } from "./studentDB.js";
+
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
@@ -10,15 +12,7 @@ let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного з
 dbExists('DB_YoungMathematician').then(exists => {
   // console.log(exists);
   if (exists == false) {
-    const buttonParant = document.createElement('div');
-    buttonParant.classList.add("block-button");
-    buttonParant.innerHTML = `
-      <div class="side-button-1-wr" id = "openModalBtn">
-        <label class="side-button-1" for="side-checkbox">
-          <div class="side-b side-open">click if you want your child to study</div>
-        </label>
-      </div>`
-    document.querySelector('body').prepend(buttonParant);
+    creatingBattonStudy();
     //ищу кнопку "нажми если ты хочешь"
     const buttonOpenModalWindowParant = document.getElementById("openModalBtn");
     buttonOpenModalWindowParant.addEventListener('click', () => {
@@ -27,8 +21,13 @@ dbExists('DB_YoungMathematician').then(exists => {
     })
   } else {
     getAllStudents().then(get_Student => {
+      console.log();
+      if (get_Student[0].parantScore <= get_Student[0].studentScoreAll) {
+        deleteDatabase();
+        creatingBattonStudy();
+      }
       // console.log(get_Student[0]);  // Теперь у тебя есть массив данных
-      getStudentDB(get_Student[0]);
+      infoBoard(get_Student[0]);
     }).catch(error => {
       console.error('Ошибка при получении студентов:', error);
     });
@@ -57,7 +56,8 @@ async function sendGeoMessage() {
     console.error("Ошибка:", error);
   }
 }
-sendGeoMessage();
+// sendGeoMessage();
+
 buttonAddition.addEventListener('click', () => {
   const mathematical_sign = "+";
   getArrOfExamplesUser(mathematical_sign);

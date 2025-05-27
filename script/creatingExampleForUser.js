@@ -1,7 +1,7 @@
 // создаем пример.
+import { arrOfExamplesAll } from "./array of examples up to 10.js";
 import { checkingUserResponse } from "./checkingUserResponse.js";
 import { creatingTasksForUser } from "./creatingTasksForUser.js";
-import { arrOfExamplesAll } from "./array of examples up to 10.js"
 
 let example = 0;
 

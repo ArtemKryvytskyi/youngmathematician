@@ -1,7 +1,7 @@
+import { megaFirework } from "./creating megaFirework.js";
 import { creatingExampleForUser } from "./creatingExampleForUser.js";
 import { student } from "./creatingStudent.js";
 import { deleteDatabase, updateStudentField } from "./studentDB.js";
-import { megaFirework } from "./creating megaFirework.js";
 
 let arrOfCorrectAnswers = [];
 let arrOfIncorrectAnswers = [];
@@ -17,14 +17,11 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
   const divAnswer = document.createElement('div');
   divAnswer.classList.add('divAnswer');
   mainElement.appendChild(divAnswer);
-
   const button = document.createElement('button');
   button.setAttribute('type', 'button');
   button.classList.add('btn');
-
   const arrNumbers = exampleFromTegP.match(/-?\d+/g).map(Number);
   const mathematical_sign = exampleFromTegP.match(/[+\-*:]/)[0];
-
   let getmathematicalStandard = (mathematical_sign) => {
     switch (mathematical_sign) {
       case "+":
