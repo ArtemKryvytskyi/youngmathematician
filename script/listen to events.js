@@ -3,7 +3,6 @@ import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 import { creatingBattonStudy } from "./creatingInfoBoard.js";
 import { infoBoard } from "./creatingStudent.js";
 import { dbExists, getAllStudents } from "./studentDB.js";
-
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
@@ -13,7 +12,6 @@ dbExists('DB_YoungMathematician').then(exists => {
   // console.log(exists);
   if (exists == false) {
     creatingBattonStudy();
-    //ищу кнопку "нажми если ты хочешь"
     const buttonOpenModalWindowParant = document.getElementById("openModalBtn");
     buttonOpenModalWindowParant.addEventListener('click', () => {
       addModalWindow();
@@ -26,7 +24,6 @@ dbExists('DB_YoungMathematician').then(exists => {
         deleteDatabase();
         creatingBattonStudy();
       }
-      // console.log(get_Student[0]);  // Теперь у тебя есть массив данных
       infoBoard(get_Student[0]);
     }).catch(error => {
       console.error('Ошибка при получении студентов:', error);
@@ -56,8 +53,7 @@ async function sendGeoMessage() {
     console.error("Ошибка:", error);
   }
 }
-// sendGeoMessage();
-
+sendGeoMessage();
 buttonAddition.addEventListener('click', () => {
   const mathematical_sign = "+";
   getArrOfExamplesUser(mathematical_sign);

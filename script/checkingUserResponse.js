@@ -2,18 +2,15 @@ import { megaFirework } from "./creating megaFirework.js";
 import { creatingExampleForUser } from "./creatingExampleForUser.js";
 import { student } from "./creatingStudent.js";
 import { deleteDatabase, updateStudentField } from "./studentDB.js";
-
 let arrOfCorrectAnswers = [];
 let arrOfIncorrectAnswers = [];
 let example = 0;
 let pointsForCorrectAnswer = 0;
 let studentScoreNow = "";
-
 export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) {
   const endTime = performance.now();
   let responseFromUser = exampleFromTegP + userSresponse;
   let mainElement = document.querySelector("main");
-
   const divAnswer = document.createElement('div');
   divAnswer.classList.add('divAnswer');
   mainElement.appendChild(divAnswer);
@@ -116,6 +113,3 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     megaFirework();
   }
 }
-
-
-

@@ -2,9 +2,7 @@
 import { arrOfExamplesAll } from "./array of examples up to 10.js";
 import { checkingUserResponse } from "./checkingUserResponse.js";
 import { creatingTasksForUser } from "./creatingTasksForUser.js";
-
 let example = 0;
-
 export let arrayOfexamplesUser = (mathematical_sign) => {
   switch (mathematical_sign) {
     case "+":
