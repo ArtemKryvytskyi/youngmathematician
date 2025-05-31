@@ -1,4 +1,4 @@
-export function creatingBattonStudy() {
+export function creatingButtonStudy() {
   const buttonParant = document.createElement('div');
   buttonParant.classList.add("block-button");
   buttonParant.innerHTML = `

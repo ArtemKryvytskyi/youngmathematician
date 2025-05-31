@@ -39,6 +39,8 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       divAnswer.innerHTML += "<img src='./img/pngwing.com.png' height='200px' width='200px'>";
       arrOfCorrectAnswers.push(responseFromUser);
       pointsForCorrectAnswer++;
+      // console.log(pointsForCorrectAnswer);
+      // console.log(student);
       if (student !== undefined) {
         studentScoreNow = document.getElementById('score-now');
         studentScoreNow.textContent = pointsForCorrectAnswer;
@@ -92,7 +94,7 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       updateStudentField(student.id, { studentScoreAll: student_ScoreAll });
       let studentScoreAll = document.getElementById('score-all');
       studentScoreAll.textContent = student_ScoreAll;
-      let infoboard = document.querySelector(".info-student");
+      // infoboard = document.querySelector(".info-student");
       studentScoreNow.textContent = 0;
     }
     if (student !== undefined && student.parantScore <= student.studentScoreAll) {

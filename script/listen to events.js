@@ -1,8 +1,7 @@
 import { addModalWindow } from "./addModalWindow.js";
 import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 import { creatingBattonStudy } from "./creatingInfoBoard.js";
-import { infoBoard } from "./creatingStudent.js";
-import { dbExists, getAllStudents, deleteDatabase } from "./studentDB.js";
+import { dbExists, deleteDatabase, getAllStudents } from "./studentDB.js";
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
@@ -15,16 +14,16 @@ dbExists('DB_YoungMathematician').then(exists => {
     const buttonOpenModalWindowParant = document.getElementById("openModalBtn");
     buttonOpenModalWindowParant.addEventListener('click', () => {
       addModalWindow();
-      document.querySelector('.block-button').remove();
+      document.querySelector(".block-button").remove();
     })
   } else {
     getAllStudents().then(get_Student => {
-      console.log();
       if (get_Student[0].parantScore <= get_Student[0].studentScoreAll) {
         deleteDatabase();
-        creatingBattonStudy();
+        creatingButtonStudy();
       }
-      infoBoard(get_Student[0]);
+      // console.log(get_Student[0]);  // Теперь у тебя есть массив данных
+      getStudentDB(get_Student[0]);
     }).catch(error => {
       console.error('Ошибка при получении студентов:', error);
     });
@@ -59,26 +58,30 @@ buttonAddition.addEventListener('click', () => {
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
-  document.querySelector('.block-button').remove();
+  const buttonStudy = document.querySelector(".block-button")
+  if (buttonStudy) buttonStudy.remove(); //если нажали на тренажер кнопка учить исчезает
 });
 buttonSubtraction.addEventListener('click', () => {
   const mathematical_sign = "-";
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
-  document.querySelector('.block-button').remove();
+  const buttonStudy = document.querySelector(".block-button")
+  if (buttonStudy) buttonStudy.remove();
 });
 buttonMultiplication.addEventListener('click', () => {
   const mathematical_sign = "*";
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
-  document.querySelector('.block-button').remove();
+  const buttonStudy = document.querySelector(".block-button")
+  if (buttonStudy) buttonStudy.remove();
 });
 buttonDivision.addEventListener('click', () => {
   const mathematical_sign = "/";
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
-  document.querySelector('.block-button').remove();
+  const buttonStudy = document.querySelector(".block-button")
+  if (buttonStudy) buttonStudy.remove();
 });
