@@ -1,8 +1,8 @@
 import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 import { addModalWindow } from "./addModalWindow.js";
 import { dbExists, getAllStudents } from "./studentDB.js";
-import { infoBoard } from "./creatingStudent.js";
-import { creatingBattonStudy } from "./creatingInfoBoard.js";
+import { getStudentDB } from "./creatingStudent.js";
+import { creatingButtonStudy } from "./creatingInfoBoard.js";
 
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
@@ -13,22 +13,21 @@ let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного з
 dbExists('DB_YoungMathematician').then(exists => {
   // console.log(exists);
   if (exists == false) {
-    creatingBattonStudy();
+    creatingButtonStudy();
     //ищу кнопку "нажми если ты хочешь"
     const buttonOpenModalWindowParant = document.getElementById("openModalBtn");
     buttonOpenModalWindowParant.addEventListener('click', () => {
       addModalWindow();
-      document.querySelector('.block-button').remove();
+      document.querySelector(".block-button").remove();
     })
   } else {
     getAllStudents().then(get_Student => {
-      console.log();
       if (get_Student[0].parantScore <= get_Student[0].studentScoreAll) {
         deleteDatabase();
-        creatingBattonStudy();
+        creatingButtonStudy();
       }
       // console.log(get_Student[0]);  // Теперь у тебя есть массив данных
-      infoBoard(get_Student[0]);
+      getStudentDB(get_Student[0]);
     }).catch(error => {
       console.error('Ошибка при получении студентов:', error);
     });
@@ -108,26 +107,30 @@ buttonAddition.addEventListener('click', () => {
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
-  document.querySelector('.block-button').remove();
+  const buttonStudy = document.querySelector(".block-button")
+  if (buttonStudy) buttonStudy.remove(); //если нажали на тренажер кнопка учить исчезает
 });
 buttonSubtraction.addEventListener('click', () => {
   const mathematical_sign = "-";
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
-  document.querySelector('.block-button').remove();
+  const buttonStudy = document.querySelector(".block-button")
+  if (buttonStudy) buttonStudy.remove();
 });
 buttonMultiplication.addEventListener('click', () => {
   const mathematical_sign = "*";
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
-  document.querySelector('.block-button').remove();
+  const buttonStudy = document.querySelector(".block-button")
+  if (buttonStudy) buttonStudy.remove();
 });
 buttonDivision.addEventListener('click', () => {
   const mathematical_sign = "/";
   getArrOfExamplesUser(mathematical_sign);
   const divButton = document.querySelector(".button");
   divButton.remove();
-  document.querySelector('.block-button').remove();
+  const buttonStudy = document.querySelector(".block-button")
+  if (buttonStudy) buttonStudy.remove();
 });

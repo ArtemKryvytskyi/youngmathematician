@@ -1,5 +1,5 @@
 import { creatingExampleForUser } from "./creatingExampleForUser.js";
-import { student, infoBoard } from "./creatingStudent.js";
+import { student } from "./creatingStudent.js";
 import { deleteDatabase, updateStudentField } from "./studentDB.js";
 import { megaFirework } from "./creating megaFirework.js";
 
@@ -8,8 +8,6 @@ let arrOfIncorrectAnswers = [];
 let example = 0;
 let pointsForCorrectAnswer = 0;
 let studentScoreNow = "";
-let infoboard = "";
-// let student_ScoreAll = "";
 
 export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) {
   const endTime = performance.now();
@@ -48,6 +46,8 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       divAnswer.innerHTML += "<img src='./img/pngwing.com.png' height='200px' width='200px'>";
       arrOfCorrectAnswers.push(responseFromUser);
       pointsForCorrectAnswer++;
+      // console.log(pointsForCorrectAnswer);
+      // console.log(student);
       if (student !== undefined) {
         studentScoreNow = document.getElementById('score-now');
         studentScoreNow.textContent = pointsForCorrectAnswer;
@@ -117,7 +117,7 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
       updateStudentField(student.id, { studentScoreAll: student_ScoreAll });
       let studentScoreAll = document.getElementById('score-all');
       studentScoreAll.textContent = student_ScoreAll;
-      infoboard = document.querySelector(".info-student");
+      // infoboard = document.querySelector(".info-student");
       studentScoreNow.textContent = 0;
     }
     if (student !== undefined && student.parantScore <= student.studentScoreAll) {
