@@ -42,9 +42,17 @@
   width: 100%;
 }
 
-.upload-container h1 {
+h2 {
+  font-size: 1.5em;
   margin-bottom: 15px;
-  color: black
+  color: blueviolet;
+}
+
+.upload-container>p:first-of-type {
+  color: black;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 .uploadForm input {
@@ -87,13 +95,12 @@
 .upload-tasks p {
   color: black;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.2em;
 
 }
 
 .coin-pig {
   height: 5em;
-  margin: 1em;
 }
 
 .upload-tasks input {
@@ -107,10 +114,6 @@
 
 .button-apply {
   margin: 1em;
-}
-
-p {
-  display: inline;
 }
 
 /* button {
