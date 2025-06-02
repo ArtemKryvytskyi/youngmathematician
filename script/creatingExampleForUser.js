@@ -60,11 +60,12 @@ export function creatingExampleForUser() {
     mainElement.appendChild(divCountingDownExamples);
     button.addEventListener('click', () => {
       let exampleFromTegP = document.getElementById("respons").innerHTML;
+      console.log(exampleFromTegP);
       let userSresponse = document.getElementById("answer").value;
       divExample.remove();
       divCountingDownExamples.remove();
       button.remove()
-      checkingUserResponse(exampleFromTegP, userSresponse, startTime);//mathematical_sign
+      checkingUserResponse(exampleFromTegP, userSresponse, startTime);
     })
   } else {
     location.reload();

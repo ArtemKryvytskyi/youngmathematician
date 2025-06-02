@@ -9,7 +9,10 @@ let pointsForCorrectAnswer = 0;
 let studentScoreNow = "";
 export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) {
   const endTime = performance.now();
+  const totalTime = Number(((endTime - startTime) / 1000).toFixed(0));
+  console.log(totalTime, " сек");
   let responseFromUser = exampleFromTegP + userSresponse;
+  console.log(responseFromUser);
   let mainElement = document.querySelector("main");
   const divAnswer = document.createElement('div');
   divAnswer.classList.add('divAnswer');

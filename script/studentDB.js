@@ -1,9 +1,7 @@
 // db.js
-
 const DB_NAME = 'DB_YoungMathematician';
 const DB_VERSION = 1;
 const STORE_NAME = 'student';
-
 export async function dbExists(DB_NAME) {
   if (!indexedDB.databases) {
     console.warn('indexedDB.databases() не поддерживается в этом браузере');

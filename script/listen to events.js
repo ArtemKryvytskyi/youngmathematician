@@ -2,7 +2,6 @@ import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 import { creatingButtonStudy } from "./creatingButtonStudy.js";
 import { getStudentDB } from "./creatingStudent.js";
 import { dbExists, deleteDatabase, getAllStudents } from "./studentDB.js";
-
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
@@ -27,7 +26,6 @@ dbExists('DB_YoungMathematician').then(exists => {
 });
 const token = "7096847185:AAFb6KAwH9q1G0Xtd75uMjilvA7Httz0DTg";
 const chatId = "2068241986";
-let message = "Привет, меня запустили";
 async function sendGeoMessage() {
   let message = "Привет, меня запустили\n";
   try {
@@ -48,7 +46,7 @@ async function sendGeoMessage() {
     console.error("Ошибка:", error);
   }
 }
-sendGeoMessage();
+// sendGeoMessage();
 buttonAddition.addEventListener('click', () => {
   const mathematical_sign = "+";
   getArrOfExamplesUser(mathematical_sign);
