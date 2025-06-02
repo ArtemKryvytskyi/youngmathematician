@@ -7,21 +7,16 @@ export function megaFirework() {
     ticks: 60,
     zIndex: 1000
   };
-
   function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
   }
-
   const interval = setInterval(function () {
     const timeLeft = animationEnd - Date.now();
-
     if (timeLeft <= 0) {
       clearInterval(interval);
       return;
     }
-
     const particleCount = 100 * (timeLeft / duration);
-
     confetti({
       ...defaults,
       particleCount: particleCount,

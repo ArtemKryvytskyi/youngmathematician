@@ -1,5 +1,5 @@
 import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
-import { creatingButtonStudy } from "./creatingInfoBoard.js";
+import { creatingButtonStudy } from "./creatingButtonStudy.js";
 import { getStudentDB } from "./creatingStudent.js";
 import { dbExists, deleteDatabase, getAllStudents } from "./studentDB.js";
 

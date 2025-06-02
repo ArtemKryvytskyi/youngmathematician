@@ -1,8 +1,6 @@
 import { Student } from "./constructorObjectStudent.js";
 import * as studentDB from "./studentDB.js";
-
 export let student;
-
 export function creatingStudent(imgMotivational) {
   student = new Student();
   student.id = generateSecureRandomId();
