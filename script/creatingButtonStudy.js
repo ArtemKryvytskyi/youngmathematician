@@ -1,3 +1,4 @@
+import { addModalWindow } from "./addModalWindow.js"
 export function creatingButtonStudy() {
   const buttonParant = document.createElement('div');
   buttonParant.classList.add("block-button");
@@ -8,4 +9,9 @@ export function creatingButtonStudy() {
         </label>
       </div>`
   document.querySelector('body').prepend(buttonParant);
+  const buttonOpenModalWindowParant = document.getElementById("openModalBtn");
+  buttonOpenModalWindowParant.addEventListener('click', () => {
+    addModalWindow();
+    document.querySelector(".block-button").remove();
+  })
 }

@@ -1,7 +1,8 @@
-import { addModalWindow } from "./addModalWindow.js";
 import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
-import { creatingBattonStudy } from "./creatingInfoBoard.js";
+import { creatingButtonStudy } from "./creatingInfoBoard.js";
+import { getStudentDB } from "./creatingStudent.js";
 import { dbExists, deleteDatabase, getAllStudents } from "./studentDB.js";
+
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
@@ -10,12 +11,7 @@ let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного з
 dbExists('DB_YoungMathematician').then(exists => {
   // console.log(exists);
   if (exists == false) {
-    creatingBattonStudy();
-    const buttonOpenModalWindowParant = document.getElementById("openModalBtn");
-    buttonOpenModalWindowParant.addEventListener('click', () => {
-      addModalWindow();
-      document.querySelector(".block-button").remove();
-    })
+    creatingButtonStudy();
   } else {
     getAllStudents().then(get_Student => {
       if (get_Student[0].parantScore <= get_Student[0].studentScoreAll) {
