@@ -2,7 +2,7 @@ import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
 import { addModalWindow } from "./addModalWindow.js";
 import { dbExists, getAllStudents } from "./studentDB.js";
 import { getStudentDB } from "./creatingStudent.js";
-import { creatingButtonStudy } from "./creatingInfoBoard.js";
+import { creatingButtonStudy } from "./creatingButtonStudy.js";
 
 const buttonAddition = document.getElementById('+');
 const buttonSubtraction = document.getElementById('-');
@@ -14,12 +14,6 @@ dbExists('DB_YoungMathematician').then(exists => {
   // console.log(exists);
   if (exists == false) {
     creatingButtonStudy();
-    //ищу кнопку "нажми если ты хочешь"
-    const buttonOpenModalWindowParant = document.getElementById("openModalBtn");
-    buttonOpenModalWindowParant.addEventListener('click', () => {
-      addModalWindow();
-      document.querySelector(".block-button").remove();
-    })
   } else {
     getAllStudents().then(get_Student => {
       if (get_Student[0].parantScore <= get_Student[0].studentScoreAll) {

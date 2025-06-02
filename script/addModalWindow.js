@@ -1,9 +1,11 @@
 import { creatingStudent } from "./creatingStudent.js";
+import { creatingButtonStudy } from "./creatingButtonStudy.js";
 export function addModalWindow() {
   const newModalWindow = document.createElement('div');
   newModalWindow.innerHTML = `
   <div class="upload-container">
       <div class="preview" id="preview"></div>
+      <span id="close" class="close">&times;</span>
       <h2 id="upload">Set a goal for the student</h2>
       <p>Upload a motivational picture</p>
       <form id="uploadForm" class="uploadForm">
@@ -19,6 +21,8 @@ export function addModalWindow() {
         <button class ="button-apply">Apply</button>
       </div>
       <p>one correctly solved example is 1 coin</p>
+      <hr>
+      <p>if you want to close this window, click on an empty space.</p>
     </div>`
   newModalWindow.classList.add('modal-parant');
   // Находим контейнер, куда вставить
@@ -47,9 +51,16 @@ export function addModalWindow() {
   buttonApply.addEventListener("click", () => {
     creatingStudent(imgMotivational);
   })
+  const modal = document.querySelector(".modal-parant");
+  const btn = document.querySelector(".close")
+  btn.addEventListener('click', () => {
+    modal.remove();
+    creatingButtonStudy();
+  })
   window.addEventListener("click", (event) => {
     if (event.target === modal) {
-      modal.style.display = "none";
+      modal.remove();
+      creatingButtonStudy();
     }
   });
 }
