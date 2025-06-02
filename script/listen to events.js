@@ -1,5 +1,4 @@
 import { arrayOfexamplesUser } from "./creatingExampleForUser.js";
-import { addModalWindow } from "./addModalWindow.js";
 import { dbExists, getAllStudents } from "./studentDB.js";
 import { getStudentDB } from "./creatingStudent.js";
 import { creatingButtonStudy } from "./creatingButtonStudy.js";
