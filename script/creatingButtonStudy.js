@@ -5,7 +5,7 @@ export function creatingButtonStudy() {
   buttonParant.innerHTML = `
       <div class="side-button-1-wr" id = "openModalBtn">
         <label class="side-button-1" for="side-checkbox">
-          <div class="side-b side-open">click if you want your child to study</div>
+          <div class="side-b side-open">Сlick to open the Motivation Window</div>
         </label>
       </div>`
   document.querySelector('body').prepend(buttonParant);
