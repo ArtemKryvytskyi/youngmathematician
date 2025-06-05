@@ -5,8 +5,7 @@ export class Student {
     this.imgMotivational = " ";
     this.parantScore = 0;
     this.studentScoreAll = 0;
-    this.studentScoreNow = 0;
-    this.arrSolvedExamples = [];
-    this.arrUnresolvedExamples = [];
+    this.solvedExamples = {};
+    this.unresolvedExamples = {};
   }
 }

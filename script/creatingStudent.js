@@ -14,7 +14,7 @@ export function creatingStudent(imgMotivational) {
 }
 export function getStudentDB(get_Student) {
   student = get_Student;
-  infoBoard(student)
+  infoBoard(student);
 }
 function generateSecureRandomId() {
   const array = new Uint32Array(1);
@@ -34,7 +34,7 @@ function saveimgMotivational(imgMotivational) {
   });
 }
 export function infoBoard(student) {
-  console.log("infoBord", student);
+  // console.log("infoBord", student);
   const infoStudent = document.createElement("div");
   infoStudent.classList.add("info-student");
   infoStudent.innerHTML = `
@@ -43,6 +43,7 @@ export function infoBoard(student) {
   <img src="./img/gold_coins_pot.png" class="coin-pod">
   <p class="text-parantScore" id="score-all">${student.studentScoreAll}</p>
   <img src="./img/coin_pig1.png">
-  <p class="text-parantScore" id="score-now">${student.studentScoreNow}</p>`
+  <p class="text-parantScore" id="score-now">0</p>`
   document.querySelector('main').prepend(infoStudent);
 }
+console.log(student);

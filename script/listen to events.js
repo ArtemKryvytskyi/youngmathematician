@@ -7,6 +7,7 @@ const buttonSubtraction = document.getElementById('-');
 const buttonMultiplication = document.getElementById('*');
 const buttonDivision = document.getElementById('/');
 let getArrOfExamplesUser = arrayOfexamplesUser;// для повторного запуска.
+
 dbExists('DB_YoungMathematician').then(exists => {
   // console.log(exists);
   if (exists == false) {

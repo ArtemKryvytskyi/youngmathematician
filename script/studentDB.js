@@ -61,11 +61,17 @@ export async function getStudent(id) {
   });
 }
 export async function deleteStudent(id) {
-  const db = await openDB();
-  const tx = db.transaction(STORE_NAME, 'readwrite');
-  const store = tx.objectStore(STORE_NAME);
-  store.delete(id);
-  return tx.complete;
+  const db = await openDB(); //открывает (или создаёт) базу данных.
+  const tx = db.transaction(STORE_NAME, 'readwrite');// Создаём транзакцию с базой данных.
+  const store = tx.objectStore(STORE_NAME);// Получаем объект (object store) из транзакции.
+  store.delete(id);//Удаляем объект с указанным id из хранилища.
+  return tx.complete;//Возвращается промис, который завершится, когда вся транзакция будет полностью выполнена.
+}
+export async function deleteStudentParantScore(id) {
+  const db = await openDB(); //открывает (или создаёт) базу данных.
+  const tx = db.transaction(STORE_NAME, 'readwrite');// Создаём транзакцию с базой данных.
+  const store = tx.objectStore(STORE_NAME);// Получаем объект (object store) из транзакции.
+  store.delete(parantScore);
 }
 export async function getAllStudents() {
   const db = await openDB();

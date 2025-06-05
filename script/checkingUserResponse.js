@@ -2,17 +2,16 @@ import { megaFirework } from "./creating megaFirework.js";
 import { creatingExampleForUser } from "./creatingExampleForUser.js";
 import { student } from "./creatingStudent.js";
 import { deleteDatabase, updateStudentField } from "./studentDB.js";
-let arrOfCorrectAnswers = [];
-let arrOfIncorrectAnswers = [];
 let example = 0;
 let pointsForCorrectAnswer = 0;
 let studentScoreNow = "";
+// let arrOfCorrectAnswers = studentsFromDB.arrSolvedExamples;
+// console.log(arrOfCorrectAnswers);
 export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) {
   const endTime = performance.now();
   const totalTime = Number(((endTime - startTime) / 1000).toFixed(0));
-  console.log(totalTime, " сек");
+  console.log(totalTime, "сек");
   let responseFromUser = exampleFromTegP + userSresponse;
-  console.log(responseFromUser);
   let mainElement = document.querySelector("main");
   const divAnswer = document.createElement('div');
   divAnswer.classList.add('divAnswer');
@@ -40,21 +39,26 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     if (mathematicalStandard == userSresponse && userSresponse !== '') {
       divAnswer.innerHTML = "<p>" + "OK, You're right!!!" + "</p>";
       divAnswer.innerHTML += "<img src='./img/pngwing.com.png' height='200px' width='200px'>";
-      arrOfCorrectAnswers.push(responseFromUser);
       pointsForCorrectAnswer++;
-      // console.log(pointsForCorrectAnswer);
-      // console.log(student);
       if (student !== undefined) {
+        student.solvedExamples[exampleFromTegP] = totalTime;
+        console.log(student.solvedExamples);
         studentScoreNow = document.getElementById('score-now');
         studentScoreNow.textContent = pointsForCorrectAnswer;
       }
+      // console.log(pointsForCorrectAnswer);
+      // console.log(student);
     } else if (example <= 9) {
       divAnswer.innerHTML = "<p>" + "Oh No, it's a mistake." + "<img src='./img/pngsad.com.png' height='100px' width='100px'>" + "</p>";
       divAnswer.innerHTML += "<p>" + "Try the following example!" + "<img src='./img/TRY.com.png' height='100px' width='150px'>" + "</p>";
-      arrOfIncorrectAnswers.push(responseFromUser);
+      if (student !== undefined)
+        student.unresolvedExamples[exampleFromTegP] = totalTime;
+      // console.log(student.unresolvedExamples);
     } else {
       divAnswer.innerHTML = "<p>" + "Oh No, it's a mistake." + "<img src='./img/pngsad.com.png' height='100px' width='100px'>" + "</p>";
-      arrOfIncorrectAnswers.push(responseFromUser);
+      if (student !== undefined)
+        student.unresolvedExamples[exampleFromTegP] = totalTime;
+      // console.log(student.unresolvedExamples);
     }
   }
   if (example < 10) {
@@ -69,8 +73,6 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     button.remove();
     if (example == 10) {
       createResult();
-      arrOfCorrectAnswers = [];
-      arrOfIncorrectAnswers = [];
       example = 0;
     } else {
       creatingExampleForUser();
@@ -94,10 +96,9 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     }
     if (student !== undefined) {
       let student_ScoreAll = student.studentScoreAll += pointsForCorrectAnswer;
-      updateStudentField(student.id, { studentScoreAll: student_ScoreAll });
+      updateStudentField(student.id, { studentScoreAll: student_ScoreAll, solvedExamples: student.unresolvedExamples, unresolvedExamples: student.unresolvedExamples });
       let studentScoreAll = document.getElementById('score-all');
       studentScoreAll.textContent = student_ScoreAll;
-      // infoboard = document.querySelector(".info-student");
       studentScoreNow.textContent = 0;
     }
     if (student !== undefined && student.parantScore <= student.studentScoreAll) {
@@ -114,7 +115,6 @@ export function checkingUserResponse(exampleFromTegP, userSresponse, startTime) 
     divResult.innerHTML =
       `<p>You deserve a gift from your parents. Tell them about it.</p> ` +
       "<img src='./img/gift.png' class = 'gift'>";
-    deleteDatabase();
     megaFirework();
   }
 }
